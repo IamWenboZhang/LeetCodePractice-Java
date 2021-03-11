@@ -70,6 +70,40 @@ public class SortAlgorithm {
         QuickSortHelper(arr,0, arr.length-1);
         return arr;
     }
+
+    private static void heapy(int[] arr,int parent, int len){
+        var left = parent*2+1;
+        var right = parent*2+2;
+        var max = parent;
+        if(parent < len) {
+            if (left < len && arr[left] > arr[max]) {
+                max = left;
+            }
+            if (right < len && arr[right] > arr[max]) {
+                max = right;
+            }
+            if (max != parent) {
+                SortAlgorithm.Swap(arr, parent, max);
+                heapy(arr, max, len);
+            }
+        }
+    }
+    private   static  int[] buildHeap(int[] arr,int len){
+        var lastparent = (arr.length-2)/2;
+        for(int i = lastparent;i>=0;i--){
+            heapy(arr,i,len);
+        }
+        return arr;
+    }
+    public static int[] HeapSort(int[] arr){
+        buildHeap(arr, arr.length);
+        for(int i = arr.length-1;i>=0;i--){
+            SortAlgorithm.Swap(arr,0,i);
+            heapy(arr,0,i);
+        }
+        return arr;
+    }
+
     public  static  int[] InsertionSort(int[] arr){
         return null;
     }
@@ -79,8 +113,4 @@ public class SortAlgorithm {
     public  static  int[] SelectionSort(int[] arr){
         return null;
     }
-    public  static  int[] HeapSort(int[] arr){
-        return null;
-    }
-
 }

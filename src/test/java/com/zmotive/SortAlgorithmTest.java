@@ -33,4 +33,15 @@ class SortAlgorithmTest {
         Assertions.assertArrayEquals(expected,res);
     }
 
+    @Test
+    public void HeapSortTest(){
+        int[] arr4test = {0,1,2,3,4,5,6,7,8,9};
+        SortAlgorithm.Shuffle(arr4test);
+        var res = SortAlgorithm.HeapSort(arr4test);
+        int[] expected = {0,1,2,3,4,5,6,7,8,9};
+        System.out.println("After Sort:");
+        System.out.println(Arrays.toString(res));
+        Assertions.assertArrayEquals(expected,res);
+    }
+
 }
