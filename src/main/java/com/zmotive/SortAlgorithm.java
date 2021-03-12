@@ -105,12 +105,32 @@ public class SortAlgorithm {
     }
 
     public  static  int[] InsertionSort(int[] arr){
-        return null;
+        for(int i = 1;i<arr.length;i++){
+            var preindex = i-1;
+            var current = arr[i];
+            while(preindex >= 0 && arr[preindex]>current){
+                arr[preindex + 1] = arr[preindex];
+                preindex--;
+            }
+            arr[preindex+1] = current;
+        }
+        return arr;
     }
     public  static  int[] ShellSort(int[] arr){
         return null;
     }
+
     public  static  int[] SelectionSort(int[] arr){
-        return null;
+        for(int i = 0;i< arr.length - 1;i++){
+            var minindex = i;
+            for(int j = i+1;j< arr.length;j++){
+                if(arr[j]<arr[minindex]){
+                    minindex = j;
+                }
+            }
+            System.out.println("Min index: "+minindex+" Min value: "+arr[minindex]);
+            Swap(arr,minindex,i);
+        }
+        return arr;
     }
 }
