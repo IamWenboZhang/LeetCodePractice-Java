@@ -1,11 +1,9 @@
 package com.zmotive;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.Objects;
 import java.util.Random;
 
-public class SortAlgorithm {
+public class SortAlgorithms {
     private  static  void Swap(int[]arr, int first,int second){
         var tmp = arr[first];
         arr[first] = arr[second];
@@ -83,7 +81,7 @@ public class SortAlgorithm {
                 max = right;
             }
             if (max != parent) {
-                SortAlgorithm.Swap(arr, parent, max);
+                SortAlgorithms.Swap(arr, parent, max);
                 heapy(arr, max, len);
             }
         }
@@ -98,7 +96,7 @@ public class SortAlgorithm {
     public static int[] HeapSort(int[] arr){
         buildHeap(arr, arr.length);
         for(int i = arr.length-1;i>=0;i--){
-            SortAlgorithm.Swap(arr,0,i);
+            SortAlgorithms.Swap(arr,0,i);
             heapy(arr,0,i);
         }
         return arr;

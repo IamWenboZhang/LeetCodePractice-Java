@@ -1,6 +1,6 @@
 package com.zmotive;
 
-public class StringAlgorithm {
+public class StringAlgorithms {
 
     public static String ReverseSentence(String sentence){
         var tmp = sentence.split(" ");
